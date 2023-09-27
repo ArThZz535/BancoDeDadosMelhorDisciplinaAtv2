@@ -50,5 +50,17 @@ end;
 //  Delimiter;
 call procedure sp_LivroAno('1985')
 
+Delimiter //
+create procedure sp_TitCategoria(in nmcategoria varchar(100))
+begin
+	select livro.tit 
+    from livro inner join categoria 
+    where categoria.categoria_ID = livro.categoria_ID AND categoria.nome = nmcategoria;
+end;
+// Delimiter;
+call sp_TitCategoria('Ficção');
+
+
+
 
 
