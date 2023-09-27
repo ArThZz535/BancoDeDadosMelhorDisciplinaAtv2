@@ -97,6 +97,17 @@ end;
 // delimiter;
 call sp_autores(); 
 
+Delimiter //
+create procedure sp_AutoresLivros()
+begin
+    select livro.titulo, aut.nome, aut.sobrenome
+    from livro
+    inner join autorlivro on livro.livro_ID = autorlivro.livro_ID
+    inner join autor on autorlivro.autor_ID = autor.autor_ID;
+end;
+// Delimiter;
+call sp_AutoresLivros();
+
 
 
 
