@@ -89,6 +89,16 @@ end;
 call sp_AutorAntigo();
 
 
+Delimiter // 
+create procedure sp_autores() 
+begin 
+    select nome from autor; 
+end;
+// delimiter;
+call sp_autores(); 
+
+
+
 
 
 
