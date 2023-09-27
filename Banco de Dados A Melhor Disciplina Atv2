@@ -5,3 +5,13 @@ Begin
 End;
 // Delimiter;
 Call procedure sp_autores()
+
+Delimiter //
+Create procedure sp_livrocategoria(nmcategoria varchar(100))
+Begin
+    Select titulo, nome
+    From livro inner join categoria
+    Where categoria.nome = nmcategoria and livro.categoria_ID = categoria.categoria_ID;
+End;
+// Delimiter;
+Call procedure sp_livrocategoria('Terror')
