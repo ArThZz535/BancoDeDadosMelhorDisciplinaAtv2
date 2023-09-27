@@ -41,3 +41,14 @@ end;
 // Delimiter;
 Call procedure sp_VfLivroCategoria ('Terror')
 
+Delimiter //
+create procedure sp_LivroAno(anopublic int)
+begin
+    select * from Livro
+    where anopublicac <= ano_Publicac
+end;
+//  Delimiter;
+call procedure sp_LivroAno('1985')
+
+
+
