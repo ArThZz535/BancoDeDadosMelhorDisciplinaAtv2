@@ -26,3 +26,18 @@ Begin
 End;
 // Delimiter;
 Call procedure sp_contlivrocategoria('Terror')
+
+Delimiter //
+create procedure sp_VfLivroCategoria(nmcategoria varchar(100))
+begin
+    declare temLivro int
+
+    if exists (select 1 from Livro where categoria = nmcategoria)
+        Set temLivro = 1
+    else
+        Set temLivro = 0
+    Select temLivro AS 'A categoria possui livros'
+end;
+// Delimiter;
+Call procedure sp_VfLivroCategoria ('Terror')
+
