@@ -78,6 +78,18 @@ end;
 // Delimiter;
 call sp_AdLivro('O Senhor dos Anéis');
 
+Delimiter //
+create procedure sp_AutorAntigo()
+begin
+    select nome from autor
+    order by dt_nascimento
+    LIMIT 1;
+end;
+// Delimiter;
+call sp_AutorAntigo();
+
+
+
 
 
 
