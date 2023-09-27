@@ -15,3 +15,14 @@ Begin
 End;
 // Delimiter;
 Call procedure sp_livrocategoria('Terror')
+
+Delimiter //
+Create procedure sp_contlivrocategoria(nmcategoria varchar (100))
+Begin
+    Select nome, count(*) as quant
+    From livro inner join categoria
+    Where categoria.nome = nmcategoria and livro.categoria_ID = categoria.categoria_ID
+    group by categoria.nome;
+End;
+// Delimiter;
+Call procedure sp_contlivrocategoria('Terror')
