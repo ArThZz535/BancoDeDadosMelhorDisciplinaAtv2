@@ -1,0 +1,7 @@
+Delimiter//
+Create procedure sp_autores()
+Begin
+    Select nome from autor;
+End;
+// Delimiter;
+Call procedure sp_autores()
