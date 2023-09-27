@@ -60,6 +60,26 @@ end;
 // Delimiter;
 call sp_TitCategoria('Ficção');
 
+Delimiter //
+create procedure sp_AdLivro(in Nm_Livro varchar(100))
+begin
+	declare quantidade_livro INT;
+
+    select count(tit) into quantidade_livro 
+    from livro 
+    where nmlivro = tit;
+
+	    if quantidade_livro = 0 them
+		    insert into livro (tit) values (nmlivro);
+	    else
+		    select titulo from livro where titulo = nmlivro;
+	    end if;
+end;
+// Delimiter;
+call sp_AdLivro('O Senhor dos Anéis');
+
+
+
 
 
 
